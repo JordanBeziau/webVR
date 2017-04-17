@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test webVR A-FRAME</title>
+    <meta name="description" content="Fiji WebVR with A-Frame">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/aframe.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+  <a-scene>
+    <a-assets>
+      <img src="assets/panorama.jpg" id="pano">
+      <img src="assets/fiji.png" id="fiji">
+      <img src="assets/visitor.png" id="visitor">
+      <img src="assets/destinations.png" id="dest">
+      <img src="assets/resorts.png" id="resort">
+      <img src="assets/top10.png" id="top10">
+      <img src="assets/attract.png" id="attract">
+    </a-assets>
+    <a-asset-item src="assets/platform.dae" id="platform"></a-asset-item>
+    <!-- Lights setup -->
+    <a-light type="spot" color="#333" position="-20 0 0"></a-light>
+    <a-light type="spot" color="#aaa" position="0 5 0"></a-light>
+    <a-sky src="#pano"></a-sky>
+    <!-- CAMERA -->
+    <a-camera position="0 0 0">
+      <a-cursor color="#fff"></a-cursor>
+    </a-camera>
+    <!-- LOGO -->
+    <a-image id="flogo" src="#fiji" width="10" height="10" position="0 15 -35" rotation="0 3 0" scale="0 0 0">
+      <a-animation attribute="scale" from="0 0 0" to="1 1 1" begin="450" dur="800" easing="ease-out-bounce"></a-animation>
+    </a-image>
+    <!-- Home (visit) -->
+    <a-image id="visit" src="#visitor" width="10" height="2.7" position="0 2 -10" rotation="-15 8 0" scale="0 0 0">
+      <a-animation attribute="scale" from="0 0 0" to="0.5 0.5 0.5" begin="950" easing="ease-out-bounce"></a-animation>
+    </a-image>
+    <!-- Destinations + click toggle -->
+    <a-image id="destinations" src="#dest" width="20" height="7" position="-8 0.5 0" rotation="0 90 0" scale="0.3 0.3 0.3"></a-image>
+    <a-image id="resorts" src="#resort" width="20" height="7" position="-5 -1.5 0" rotation="0 90 0" scale="0 0 0">
+      <a-animation attribute="scale" begin="spiner" to="0.3 0.3 0.3" easing="ease-out-elastic"></a-animation>
+      <a-animation attribute="scale" begin="shrink" to="0 0 0" easing="ease-in-elastic"></a-animation>
+    </a-image>
+    <!-- Lonely Planet TOP 10 -->
+    <a-image id="lp" src="#top10" width="5" height="5" position="0 0 3" scale="0.2 0.2 0.2" rotation="0 180 0"></a-image>
+    <!-- Platform (look at your feets) -->
+    <a-collada-model src="#platform" position="0 -0.95 0"></a-collada-model>
+    <!-- Attractions -->
+    <a-image id="attractions" src="#attract" width="20" height="7" position="8 0.5 0" rotation="0 -90 0" scale="0.3 0.3 0.3"></a-image>
+  </a-scene>
+
+  <div id="info" class="panel hidden animated">
+    <div class="head">
+      <a href="#" id="burger-infos">&#9776;</a>
+      <h2>Attractions</h2>
+    </div>
+    <p>Fiji Museum</p>
+    <p>Colo-i-Suva Forest Park</p>
+    <p>Suva Municipal Market</p>
+    <p>Sri Siva Subramaniya Swami Temple</p>
+  </div>
+
+</body>
+</html>
